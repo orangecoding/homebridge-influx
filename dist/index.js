@@ -40,7 +40,7 @@ function HomebridgeInflux(log, config) {
 HomebridgeInflux.prototype = {
     // Called when HomeKit wants to read our sensor value.
     getRemoteState: function (service, callback) {
-        getLastMesurement(this.influx, service, this.schema, function (influxError, value) {
+        getLastMesurement(this.influx, service, this.schema, (influxError, value) => {
             if (influxError) {
                 this.log(influxError);
                 return callback(new Error(influxError));
@@ -49,7 +49,7 @@ HomebridgeInflux.prototype = {
             this.temperatureService.setCharacteristic(Characteristic.Name, this.sensor_names[service]);
             this.temperatureService.setCharacteristic(service === 'temperature' ? Characteristic.CurrentTemperature : Characteristic.CurrentRelativeHumidity, v);
             return callback(null, v);
-        }.bind(this));
+        });
     },
     // Homekit-specific getters
     getTemperatureState: function (callback) {
