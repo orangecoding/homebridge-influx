@@ -1,6 +1,6 @@
 {
   "name": "homebridge-influx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Homebridge plugin that exposes latest values from an InfluxDB instance.",
   "license": "MIT",
   "keywords": [
