@@ -46,8 +46,9 @@ HomebridgeInflux.prototype = {
                 return callback(new Error(influxError));
             }
             const v = round(value, 1);
-            this.temperatureService.setCharacteristic(Characteristic.Name, this.sensor_names[service]);
-            this.temperatureService.setCharacteristic(service === 'temperature' ? Characteristic.CurrentTemperature : Characteristic.CurrentRelativeHumidity, v);
+            const takenService = service === 'temperature' ? this.temperatureService : this.humidityService;
+            takenService.setCharacteristic(Characteristic.Name, this.sensor_names[service]);
+            takenService.setCharacteristic(service === 'temperature' ? Characteristic.CurrentTemperature : Characteristic.CurrentRelativeHumidity, v);
             return callback(null, v);
         });
     },
