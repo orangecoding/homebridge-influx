@@ -13,7 +13,7 @@ const defaultConfig = {
   }
 };
 
-const getLastMesurement = (influx, service, schema, cb) => {
+const getLastMeasurement = (influx, service, schema, cb) => {
   influx
     .query(`SELECT LAST("${schema[service].field}") FROM ${schema[service].measurement}`)
     .then(result => cb(null, result[0].last))
@@ -48,7 +48,7 @@ function HomebridgeInflux(log, config) {
 HomebridgeInflux.prototype = {
   // Called when HomeKit wants to read our sensor value.
   getRemoteState: function (service, callback) {
-    getLastMesurement(
+      getLastMeasurement(
       this.influx,
       service,
       this.schema,
