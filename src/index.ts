@@ -36,7 +36,7 @@ function HomebridgeInflux(log, config) {
   // Configuration
   this.name = config['name'];
   this.manufacturer = config['manufacturer'] || 'Christian Kellner';
-  this.model = config['model'] || 'homebrige-influx';
+  this.model = config['model'] || 'homebridge-influx';
   this.serial = config['serial'] || '1';
 
   this.sensor_names = { ...defaultConfig['sensor_names'], ...config['sensor_names'] };
