@@ -16,7 +16,7 @@ const defaultConfig = {
 const getLastMeasurement = (influx, service, schema, cb) => {
   influx
     .query(`SELECT LAST("${schema[service].field}") FROM ${schema[service].measurement}`)
-    .then(result => cb(null, result[0].last))
+    .then(result => cb(null, result[0] == null ? -1 : result[0].last))
     .catch(err => cb(err));
 };
 
