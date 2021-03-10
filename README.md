@@ -51,6 +51,10 @@ Add to the `accessories` field of your Homebridge `config.json` file:
 }
 ```
 
+## Note
+The fields in `sensor_names` are optional. You however need to set at least 1. If you do not supply `temperature` for instance, no temperature sensor will be registered.
+
+#### Influx config
 The `influx` configuration object is passed as-is to the `influx` npm library, so you can use all the options it supports. 
 See [here](https://node-influx.github.io/class/src/index.js~InfluxDB.html#instance-constructor-constructor)
 
