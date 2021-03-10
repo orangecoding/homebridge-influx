@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "dev": "npm run lint && npm link && nodemon",
-    "publish": "npm run lint && npm publish"
+    "publish": "npm run lint"
   },
   "engines": {
     "node": ">=12.0.0",
